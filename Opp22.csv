@@ -1,32 +1,32 @@
-opp;play;ph_B;ph_A;outcome;play_flag;pts
-HOL;kick for touch;;11;turnover (ball stripped);Y;0
-HOL;LO in the opp 10-22;3;1;penalty (not releasing);Y;0
-HOL;LO in the opp 10-22;2;1;penalty (not releasing);Y;0
-HOL;ball jackaled in the opp 10-22;9;1;penalty (crawling);Y;0
-HOL;ball retained after re-start in the opp10-22;2;3;5-metre scrum lost;Y;0
-HOL;scrum after knock-on;;;scrum lost;N;0
-HOL;kick for touch;;2;penalty;Y;0
-HOL;kick for touch;;3;TRY;Y;7
-HOL;kick for touch;;2;handling error;Y;0
-HOL;kick for touch;;4;handling error;Y;0
-POR;free kick in the opp 10-22;1;2;handling error;Y;0
-POR;fumble recovered by #2;0;3;TRY;Y;5
-POR;kick for touch;;;lineout lost;N;0
-POR;scrum after knock-on;;10;handling error;Y;0
-POR;Lineout in opp22 after punt;;;lineout lost;N;0
-POR;kick for touch;;;handling error;Y;0
-POR;kick for touch;;;ball fumbled;Y;0
-POR;ball bumped off the post;;;TRY;Y;7
-MOL;free kick in the opp 10-22;;4;turnover (ball jackaled);Y;0
-MOL;LO in the opp 10-22;1;1;handling error;Y;0
-MOL;turnover in oppHL-10;7;1;handling error;Y;0
-MOL;kick reception oppHL-10;1;7;handling error;Y;0
-MOL;kick for touch;;1;PENALTY GOAL;Y;3
-MOL;penalty in opp22;;;PENALTY GOAL;N;3
-MOL;free kick in the opp 10-22;1;7;handling error;Y;0
-MOL;free kick in the opp 10-22;1;4;handling error;Y;0
-MOL;kick reception ownHL-10;3;1;TRY;Y;7
-MOL;free kick in the opp 10-22;1;1;PENALTY GOAL;Y;3
-MOL;fumble recovered by #6;1;0;TRY;Y;7
-MOL;kick for touch;.;1;TRY;Y;7
-MOL;lo in the ownHL-10;7;0;TRY;Y;5
+opp;play;ph_B;ph_A;outcome;play_flag;pts;sp
+HOL;kick for touch;;11;turnover (ball stripped);Y;0;2
+HOL;LO in the opp 10-22;3;1;penalty (not releasing);Y;0;0
+HOL;LO in the opp 10-22;2;1;penalty (not releasing);Y;0;0
+HOL;ball jackaled in the opp 10-22;9;1;penalty (crawling);Y;0;0
+HOL;ball retained after re-start in the opp10-22;2;3;5-metre scrum lost;Y;0;1
+HOL;scrum after knock-on;;;scrum lost;N;0;1
+HOL;kick for touch;;2;penalty;Y;0;1
+HOL;kick for touch;;3;TRY;Y;7;1
+HOL;kick for touch;;2;handling error;Y;0;2
+HOL;kick for touch;;4;handling error;Y;0;1
+POR;free kick in the opp 10-22;1;2;handling error;Y;0;0
+POR;fumble recovered by #2;0;3;TRY;Y;5;0
+POR;kick for touch;;;lineout lost;N;0;1
+POR;scrum after knock-on;;10;handling error;Y;0;4
+POR;Lineout in opp22 after punt;;;lineout lost;N;0;1
+POR;kick for touch;;;handling error;N;0;1
+POR;kick for touch;;1;ball fumbled;Y;0;1
+POR;ball bumped off the post (incomplete pass, Portugal);;1;TRY;Y;7;0
+MOL;free kick in the opp 10-22;;4;turnover (ball jackaled);Y;0;0
+MOL;LO in the opp 10-22;1;1;handling error;Y;0;0
+MOL;turnover in oppHL-10;7;1;handling error;Y;0;0
+MOL;kick reception oppHL-10;1;7;handling error;Y;0;1
+MOL;kick for touch;;1;PENALTY GOAL;Y;3;1
+MOL;penalty in opp22;;;PENALTY GOAL;N;3;0
+MOL;free kick in the opp 10-22;1;7;handling error;Y;0;1
+MOL;free kick in the opp 10-22;1;4;handling error;Y;0;0
+MOL;kick reception ownHL-10;3;1;TRY;Y;7;0
+MOL;free kick in the opp 10-22;1;1;PENALTY GOAL;Y;3;0
+MOL;fumble recovered by #6;1;0;TRY;Y;7;0
+MOL;kick for touch;.;1;TRY;Y;7;1
+MOL;lo in the ownHL-10;7;0;TRY;Y;5;0
