@@ -1,8 +1,17 @@
-# Import data and store it as a data frame
+# Import data and store it as a data frame (copy/paste the address of the folder where you store the data)
 Opp22 <- read.csv(".../.../Opp22.csv", header=TRUE, sep = ";")
-#-----------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------
 # Load PLOTLY package
 library(plotly)
-#-----------------------------------------------------------------------------------------------------
-# Descriptive statistics
-median(
+#----------------------------------------------------------------------------------------------------------
+# Filter out entries without controlled possession
+Opp22_Y <- Opp22[(Opp22$play_flag == "Y"),]
+#----------------------------------------------------------------------------------------------------------
+# Descriptive stats for entry flag = Y
+ntr22 <- NROW(Opp22_Y$ph_A)                            # number of entries
+med22 <- median(Opp22_Y$ph_A)                          # median number of phases after entering the Opp22
+sd(Opp22$ph_A[which(Opp22$play_flag == "Y")])          # standard deviation
+pts22 <- sum(Opp22$pts[which(Opp22$play_flag == "Y")]) # points scored after entering the Opp22
+#----------------------------------------------------------------------------------------------------------
+# Points per entry
+pts_ntr <- round(pts22/ntr22,2)
