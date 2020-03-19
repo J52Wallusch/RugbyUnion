@@ -1,17 +1,49 @@
 # Import data and store it as a data frame (copy/paste the address of the folder where you store the data)
 Opp22 <- read.csv(".../.../Opp22.csv", header=TRUE, sep = ";")
-#----------------------------------------------------------------------------------------------------------
-# Load PLOTLY package
+#--------------------------------------------------------------------------------------------------------------
+# Load PLOTLY and MOMENTS packages
 library(plotly)
-#----------------------------------------------------------------------------------------------------------
+library(moments)
+#--------------------------------------------------------------------------------------------------------------
 # Filter out entries without controlled possession
 Opp22_Y <- Opp22[(Opp22$play_flag == "Y"),]
-#----------------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------
 # Descriptive stats for entry flag = Y
-ntr22 <- NROW(Opp22_Y$ph_A)                            # number of entries
-med22 <- median(Opp22_Y$ph_A)                          # median number of phases after entering the Opp22
-sd(Opp22$ph_A[which(Opp22$play_flag == "Y")])          # standard deviation
-pts22 <- sum(Opp22$pts[which(Opp22$play_flag == "Y")]) # points scored after entering the Opp22
-#----------------------------------------------------------------------------------------------------------
+ntr22 <- NROW(Opp22_Y$ph_A)                           # number of entries
+med22 <- median(Opp22_Y$ph_A)                         # median number of phases after entering the Opp22
+std22 <- sd(Opp22_Y$ph_A)                             # standard deviation of phases after entering the Opp22
+pts22 <- sum(Opp22_Y$pts)                             # points scored after entering the Opp22
+skw22 <- moments::skewness(Opp22_Y$ph_A)              # skewness of phases after entering the Opp22
+#--------------------------------------------------------------------------------------------------------------
 # Points per entry
 pts_ntr <- round(pts22/ntr22,2)
+#--------------------------------------------------------------------------------------------------------------
+# Create a binary dummy variable (points scored = 1, no points = 0)
+bin_ntr <- ifelse(Opp22_Y$pts > 0, 1, 0) 
+#--------------------------------------------------------------------------------------------------------------
+# Estimations
+pha_pst <- glm(bin_ntr ~                              # regress the binary variable
+                 Opp22_Y$ph_A - 1,                    # against no. of phases (drop the constant term)
+                 family = binomial(link = "logit"))   # select model type (logit)
+summary(pha_pst)                                      # model summary
+#--------------------------------------------------------------------------------------------------------------
+# Check the significance
+pval22 <- summary(pha_pst)$coefficients[4]
+ifelse(pval22 < 0.01, "significant at 1% significanc elevel",
+       ifelse(pval22 > 0.01 & pval22 < 0.05, "significant at 5% significanc elevel",
+              ifelse(pval22 > 0.05 & pval22 < 0.1, "significant at 10% significanc level",
+                     paste(round(pval22*100), "% significance level", sep = ""))))
+#--------------------------------------------------------------------------------------------------------------
+# Simulations: probability of scoring
+slo_22 <- pha_pst$coefficients                        # extract the estimated coefficient
+seq_22 <- seq(1, max(Opp22_Y$ph_A) + 1, by = 1)       # create a sequence simulating number of phases
+pts_Y  <- plogis(slo_22*seq_22)                       # calculate probabilities using logistic distribution
+#--------------------------------------------------------------------------------------------------------------
+# Graph the results
+plot_ly(x = seq_22, y = pts_Y, type = "bar",
+        hoverinfo = "text", text = paste("Phases: ", seq_22, "<br>",
+                                         "Prob. of Scoring: ", round(pts_Y*100,1), "%", sep = ""))%>%
+  layout(xaxis = list(title = "No. of Phases in Opp22"),
+         yaxis = list(title = "Probability of Scoring", tickformat = "%"),
+         margin = list(b = 150, t = 150, l = 150, r = 150, pad = 1))%>%
+  layout(xaxis = list(showgrid = TRUE))
