@@ -1,0 +1,8 @@
+# Import data and store it as a data frame
+Opp22 <- read.csv(".../.../Opp22.csv", header=TRUE, sep = ";")
+#-----------------------------------------------------------------------------------------------------
+# Load PLOTLY package
+library(plotly)
+#-----------------------------------------------------------------------------------------------------
+# Descriptive statistics
+median(
