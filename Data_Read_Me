@@ -1,0 +1,10 @@
+The data is stored in a (comma-delimited) csv file. 
+Columns:
+[A] opp - opponent	
+[B] play - play initiating the entry into the Opp22	
+[C] ph_B - phases before entering the Opp22	
+[D] ph_A - phases after enetring the Opp22	
+[E] outcome - result of the entry	
+[F] play_flag	- only plays with flag = Y should be considered (example: line 17, line-out resulting in a knock-on, platform excluded from analysis) 
+[G] pts - points scored
+[H] sp - set-pieces in the Opp22
