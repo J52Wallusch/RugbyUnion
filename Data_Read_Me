@@ -5,6 +5,6 @@ Columns:
 [C] ph_B - phases before entering the Opp22	
 [D] ph_A - phases after enetring the Opp22	
 [E] outcome - result of the entry	
-[F] play_flag	- only plays with flag = Y should be considered (example: line 17, line-out resulting in a knock-on, platform excluded from analysis) 
+[F] play_flag	- controlled possession flag, only plays with flag = Y should be considered (example: line 17, line-out resulting in a knock-on, no controlled possession, thus platform excluded from analysis) 
 [G] pts - points scored
 [H] sp - set-pieces in the Opp22
