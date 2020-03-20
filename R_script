@@ -29,9 +29,9 @@ summary(pha_pst)                                      # model summary
 #--------------------------------------------------------------------------------------------------------------
 # Check the significance
 pval22 <- summary(pha_pst)$coefficients[4]
-ifelse(pval22 < 0.01, "significant at 1% significanc elevel",
-       ifelse(pval22 > 0.01 & pval22 < 0.05, "significant at 5% significanc elevel",
-              ifelse(pval22 > 0.05 & pval22 < 0.1, "significant at 10% significanc level",
+ifelse(pval22 < 0.01, "significant at 1% significance elevel",
+       ifelse(pval22 > 0.01 & pval22 < 0.05, "significant at 5% significance elevel",
+              ifelse(pval22 > 0.05 & pval22 < 0.1, "significant at 10% significance level",
                      paste(round(pval22*100), "% significance level", sep = ""))))
 #--------------------------------------------------------------------------------------------------------------
 # Simulations: probability of scoring
